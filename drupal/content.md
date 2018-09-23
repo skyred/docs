@@ -22,6 +22,14 @@ $ docker run --name some-%%REPO%% -p 8080:80 -d %%IMAGE%%
 
 Then, access it via `http://localhost:8080` or `http://host-ip:8080` in a browser.
 
+If you'd like to launch the demo site for evaulating Drupal:
+
+```console
+$ docker run --rm -ti -p 8080:8888 -d %%IMAGE%% php core/scripts/drupal quick-start demo_umami --host 0.0.0.0
+```
+
+Then, access it via `http://localhost:8080` or `http://host-ip:8080` in a browser. More details, please see [`Evaluator Guide`](https://www.drupal.org/docs/official_docs/en/_evaluator_guide.html).
+
 There are multiple database types supported by this image, most easily used via standard container linking. In the default configuration, SQLite can be used to avoid a second container and write to flat-files. More detailed instructions for different (more production-ready) database types follow.
 
 When first accessing the webserver provided by this image, it will go through a brief setup process. The details provided below are specifically for the "Set up database" step of that configuration process.
